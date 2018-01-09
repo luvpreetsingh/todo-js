@@ -8,32 +8,35 @@
     <h1>My todos</h1>
     
     <div>
-      <button onclick='handlers.display_todos()'>Display Todos</button>
-      <button onclick='handlers.toggle_all()'>toggle Todos</button>
-    </div>
-    
-    <div>
+      <h3>Add todo:</h3>
       <input id='new_element' type='text'>
       <button onclick='handlers.add()'>Add Todo</button>
     </div>
     
+    <hr>
+
     <div>
+      <h3>Edit todo Here:</h3>
       <p>Write the new todotext</p>
       <input id='new_element_to_be_added' type='text'>
       <p>Write the index of older todo</p>
       <input id='position_changed' type='number'>
       <button onclick='handlers.changetodotext()'>Change Todo</button>
     </div>
+
+    <hr>
     
     <div>
-      <input id='toggle_position' type='number'>
-      <button onclick='handlers.togglecompleted()'>toggle Todo</button>
-    </div>
-    
-    
-    <div>
+      <h3>Your todos will appear here.</h3>
       <ul>
+        <li>You have not added any todos yet.</li>
       </ul>
+    </div>
+
+    <hr>
+
+    <div>
+      <button onclick='handlers.toggle_all()'>Change status of all Todos</button>
     </div>
 
     <script src="script.js"></script>

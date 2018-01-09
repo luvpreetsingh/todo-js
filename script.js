@@ -85,9 +85,13 @@ var handlers = {
   },
   add: function(){
     var new_element = document.getElementById('new_element');
-    todolist.add(new_element.value);
-    new_element.value = '';
-     
+    if (new_element.value === '' || new_element.value === 'Please enter a value'){
+      new_element.value = 'Please enter a value';
+    }
+    else{
+      todolist.add(new_element.value);
+      new_element.value = '';
+   }  
     view.displaytodos();
     /* 
     var todoul = document.querySelector('ul');
@@ -107,10 +111,10 @@ var handlers = {
     todolist.delete(position);
     view.displaytodos();
   },
-  togglecompleted: function(){
-    var position = document.getElementById('toggle_position');
-    todolist.togglecompleted(position.valueAsNumber);
-    position.value = '';
+  togglecompleted: function(position){
+    //var position = document.getElementById('toggle_position');
+    todolist.togglecompleted(position);
+    //position.value = '';
     view.displaytodos();
   },
 }
@@ -136,6 +140,8 @@ var view = {
       newli.id = i;
       newli.textContent = todotextwithstatus;
       delbtn = this.createdeletebutton();
+      statusbtn = this.createstatusbutton();
+      newli.appendChild(statusbtn);
       newli.appendChild(delbtn);
       todoul.appendChild(newli);
     }
@@ -146,13 +152,24 @@ var view = {
     delbtn.className = 'DeleteElement';
     return delbtn;
   },
+  createstatusbutton: function(){
+    var statusbtn = document.createElement('button');
+    delbtn.textContent = 'Change Status';
+    delbtn.className = 'changestatusbutton';
+    return statusbtn;
+  },
   setupeventlisteners: function(){
     todoul.addEventListener('click',function(event){
 
     if (event.target.className === 'DeleteElement'){
       console.log(parseInt(event.target.parentNode.id));
       handlers.delete(parseInt(event.target.parentNode.id));
-      }
+    }
+
+    if (event.target.className == 'changestatusbutton'){
+        console.log(parseInt(event.target.parentNode.id));
+        handlers.togglecompleted(parseInt(event.target.parentNode.id));
+    }
 
     });
   },
