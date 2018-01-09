@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+  </head>
+
+  <body>
+    <h1>My todos</h1>
+    
+    <div>
+      <button onclick='handlers.display_todos()'>Display Todos</button>
+      <button onclick='handlers.toggle_all()'>toggle Todos</button>
+    </div>
+    
+    <div>
+      <input id='new_element' type='text'>
+      <button onclick='handlers.add()'>Add Todo</button>
+    </div>
+    
+    <div>
+      <p>Write the new todotext</p>
+      <input id='new_element_to_be_added' type='text'>
+      <p>Write the index of older todo</p>
+      <input id='position_changed' type='number'>
+      <button onclick='handlers.changetodotext()'>Change Todo</button>
+    </div>
+    
+    <div>
+      <input id='toggle_position' type='number'>
+      <button onclick='handlers.togglecompleted()'>toggle Todo</button>
+    </div>
+    
+    
+    <div>
+      <ul>
+      </ul>
+    </div>
+
+    <script src="script.js"></script>
+
+  </body>
+
+</html>
