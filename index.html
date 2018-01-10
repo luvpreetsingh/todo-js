@@ -2,20 +2,26 @@
 <html>
 
   <head>
+    <link rel='stylesheet' href='style.css'>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+    <title>Todo</title>
   </head>
 
   <body>
     <h1>My todos</h1>
-    
-    <div>
+
+  <div class='container'>      
+    <div class='row'>
+    <div class='col-xs-4'>
       <h3>Add todo:</h3>
-      <input id='new_element' type='text'>
-      <button onclick='handlers.add()'>Add Todo</button>
+      <input class='form-control' id='new_element' type='text' placeholder='Enter your todo task' autofocus>
+      <button id='add_todo' onclick='handlers.add()' type='submit'>Add this task</button>
     </div>
     
-    <hr>
-
-    <div>
+    <div class='col-xs-4'>
       <h3>Edit todo Here:</h3>
       <p>Write the new todotext</p>
       <input id='new_element_to_be_added' type='text'>
@@ -24,21 +30,17 @@
       <button onclick='handlers.changetodotext()'>Change Todo</button>
     </div>
 
-    <hr>
     
-    <div>
+    <div class='col-xs-4'>
       <h3>Your todos will appear here.</h3>
       <ul>
         <li>You have not added any todos yet.</li>
       </ul>
-    </div>
-
-    <hr>
-
-    <div>
       <button onclick='handlers.toggle_all()'>Change status of all Todos</button>
     </div>
 
+  </div>
+  </div>
     <script src="script.js"></script>
 
   </body>

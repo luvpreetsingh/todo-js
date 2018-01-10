@@ -85,14 +85,14 @@ var handlers = {
   },
   add: function(){
     var new_element = document.getElementById('new_element');
-    if (new_element.value === '' || new_element.value === 'Please enter a value'){
-      new_element.value = 'Please enter a value';
+    if (new_element.value === ''){
+      //new_element.value = 'Please enter a value';
     }
     else{
       todolist.add(new_element.value);
-      new_element.value = '';
-   }  
-    view.displaytodos();
+      new_element.value = '';  
+      view.displaytodos();
+    }
     /* 
     var todoul = document.querySelector('ul');
     var newli = document.createElement('li');
@@ -129,6 +129,7 @@ var view = {
     todoul.innerHTML = '';
     for (var i=0;i < todolist.todos.length;i++){
       var newli = document.createElement('li');
+      newli.setAttribute('class','text-success');
       var todotextwithstatus = '';
       if (todolist.todos[i].completed === true){
         todotextwithstatus = '(X) - ' + todolist.todos[i].todotext + ' --> ';
@@ -170,10 +171,17 @@ var view = {
         console.log(parseInt(event.target.parentNode.id));
         handlers.togglecompleted(parseInt(event.target.parentNode.id));
     }
-
+    });
+  },
+  addhitenter: function(){
+    document.querySelector("#new_element").addEventListener("keyup", event => {
+      if(event.key !== "Enter") return;
+      document.querySelector("#add_todo").click();
+      event.preventDefault(); 
     });
   },
 };
 
 
 view.setupeventlisteners();
+view.addhitenter();
