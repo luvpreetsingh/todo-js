@@ -155,8 +155,8 @@ var view = {
   },
   createstatusbutton: function(){
     var statusbtn = document.createElement('button');
-    delbtn.textContent = 'Change Status';
-    delbtn.className = 'changestatusbutton';
+    statusbtn.textContent = 'Change Status';
+    statusbtn.className = 'changestatusbutton';
     return statusbtn;
   },
   setupeventlisteners: function(){
